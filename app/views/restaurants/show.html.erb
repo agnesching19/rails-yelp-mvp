@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h3>
@@ -30,13 +31,16 @@
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %>
 <%= link_to 'Back', restaurants_path, class: "btn btn-info" %>
 
-<h3>New review</h3>
+</div>
 
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, placeholder: '0 - 5'%>
-  <%= f.submit 'Submit your review!', class: 'btn btn-info' %>
-<% end %>
+<div class="container">
+  <h3>New review</h3>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, placeholder: '0 - 5'%>
+    <%= f.submit 'Submit your review!', class: 'btn btn-info' %>
+  <% end %>
+</div>
 
 <hr>
 <hr>
