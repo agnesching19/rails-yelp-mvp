@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @restaurant.category %>
+</p>
+
+<hr>
+
+<h2>Reviews!</h2>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> - Rating: <%= review.rating %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<h2>New review</h2>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit 'Submit your review!', class: 'btn btn-primary' %>
+<% end %>
+
+<hr>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to 'Back', restaurants_path, class: "btn btn-primary" %>
