@@ -1,28 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<h3>
+  Name: <strong><%= @restaurant.name %></strong>
+</h3>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+<h3>
+  Address: <strong><%= @restaurant.address %></strong>
+</h3>
 
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.phone_number %>
-</p>
+<h3>
+  Contact: <strong><%= @restaurant.phone_number %></strong>
+</h3>
 
-<p>
-  <strong>Stars:</strong>
-  <%= @restaurant.category %>
-</p>
+<h3>
+  Category: <strong><%= @restaurant.category %></strong>
+</h3>
 
 <hr>
 
-<h2>Reviews!</h2>
+<h3>Reviews!</h3>
 <ul>
   <% @restaurant.reviews.each do |review| %>
     <li><%= review.content %> - Rating: <%= review.rating %></li>
@@ -31,15 +27,16 @@
 
 <hr>
 
-<h2>New review</h2>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %>
+<%= link_to 'Back', restaurants_path, class: "btn btn-info" %>
+
+<h3>New review</h3>
 
 <%= simple_form_for [@restaurant, @review] do |f| %>
   <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit 'Submit your review!', class: 'btn btn-primary' %>
+  <%= f.input :rating, placeholder: '0 - 5'%>
+  <%= f.submit 'Submit your review!', class: 'btn btn-info' %>
 <% end %>
 
 <hr>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
-<%= link_to 'Back', restaurants_path, class: "btn btn-primary" %>
+<hr>
